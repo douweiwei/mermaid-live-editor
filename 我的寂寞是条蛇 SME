@@ -1,0 +1,45 @@
+graph TB
+    subgraph 源域:蛇
+        S[蛇]
+        SM[movement:蜿蜒]
+        SN[nature:冰冷]
+        SB[behavior:缠绕]
+        SA1[蜿蜒前行]
+        SA2[缠绕]
+        
+        S --> SM
+        S --> SN
+        S --> SB
+        S --> SA1
+        S --> SA2
+    end
+    
+    subgraph 目标域:寂寞
+        L[寂寞]
+        LF[feeling:蔓延]
+        LN[nature:阴冷]
+        LE[effect:压迫]
+        LA1[蔓延]
+        LA2[压迫]
+        
+        L --> LF
+        L --> LN
+        L --> LE
+        L --> LA1
+        L --> LA2
+    end
+    
+    %% 映射关系
+    SM -..->|结构映射| LF
+    SN -..->|结构映射| LN
+    SB -..->|结构映射| LE
+    SA1 -..->|行为映射| LA1
+    SA2 -..->|行为映射| LA2
+
+    classDef entity fill:#f9f,stroke:#333,stroke-width:2px
+    classDef attribute fill:#bbf,stroke:#333,stroke-width:1px
+    classDef action fill:#bfb,stroke:#333,stroke-width:1px
+    
+    class S,L entity
+    class SM,SN,SB,LF,LN,LE attribute
+    class SA1,SA2,LA1,LA2 action
